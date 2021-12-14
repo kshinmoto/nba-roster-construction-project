@@ -1,4 +1,4 @@
-# Comps-490, Data Analytics Web-App for NBA Roster Construction
+# Comp-490, Data Analytics Web-App for NBA Roster Construction
 
 ## Description
 The goal of this project is to create a web-app that uses data analytics to identify NBA teams' strengths and weaknesses, and suggest possible roster changes to improve those teams' roster constructions. This process is done by observing a team's league ranking in the [Four Factors](https://squared2020.com/2017/09/05/introduction-to-olivers-four-factors/) model, identifying players on their team potentially contributing to Four Factor deficiencies, and then suggesting players of a similar role from around the league who could positively impact the team's weaknesses in the Four Factors.
@@ -65,10 +65,36 @@ DB Browser is a program that allows us to make and edit a SQL database using the
 ![db browser](https://user-images.githubusercontent.com/60911325/145916352-69574743-3176-4ab7-aea1-1366a16029af.png)
 Screenshot of how to import csv file
 
-![db tables](https://user-images.githubusercontent.com/60911325/145916343-7d383202-d4f5-46ed-9541-6d2a5df0e2d2.png)
-
+![db tables](https://user-images.githubusercontent.com/60911325/145916343-7d383202-d4f5-46ed-9541-6d2a5df0e2d2.png)  
 Screenshot of our database tables
 
 
 ### Frontend
+The frontend of our project is in charge of creating and running the visual pages of our web-app and making it accessible in a web browser. The web-page is made from Python and Flask, and uses html files for each of the pages on the web-app, as well as the SQL database we made through DB Browser to retrieve stat information. It is important that our frontend files for the project are located in the same repository as the backend files, mainly the copy_comps_also.py file as our main web-app file calls upon the function from that python file.
+
+First, we must create our python file we will be making the web-app through. The file that we used for this is the **webapp.py** file. We must then import the necessary python packages for us to create our flask web-app (packages and installation information are listed above). We can then intialize our web-app and start making web-pages using html files.
+
+However, in order to see the changes we are making to our web-app, we must be able to see it in our web browser. We can do this by creating a local environment hosting our web-app. This can be done through your computers command promt/terminal.
+
+First you must go to the correct directory holding our project.  
+![cd compsdir](https://user-images.githubusercontent.com/60911325/145917820-54c50dd2-e13d-4657-93ad-c2564e6f0c48.png)
+
+We then set our FLASK_APP to our web-app python file.
+![set flask app](https://user-images.githubusercontent.com/60911325/145917836-a9aefe4e-8b71-4c12-a18b-d730247463d3.png)
+
+Next, we set the environment to development if we would like to be able to refresh our web-app and see our changes in real time.
+![flask development](https://user-images.githubusercontent.com/60911325/145917854-b5ff6d9c-df06-41f0-a2cf-0dfe65d8395e.png)
+
+Lastly, once we have done these steps we should be able to run our flask web-app and view it on our web browser.
+![flask run](https://user-images.githubusercontent.com/60911325/145917863-9f12224a-300e-4884-bddc-79d52b9b5799.png)
+
+Now we can make our web-app's pages and are able to view them in the web-browser. All we need to do now is **import our html files into our directory holding our project/the webapp file**, and when we run the webapp.py file, we will be able to see our finished web-app in the web browser. 
+
+The way that our **webapp.py** file works is by creating a page for each of our NBA teams through a base html file (the base html file holds the navigation bar and general stle/layout of our web pages) and a separate html file for every team. 
+
+![web-page code](https://user-images.githubusercontent.com/60911325/145921671-b3f26f8a-0d4c-4730-b1ae-b9995f9e05a7.png)
+
+As a walkthrough of this process, first the web page for the designated team is defined and given an address (/atl). We then connect our web page to our SQL database. Using the SQL data base we retrieve the team roster along with the team's Four Factors stats and league rankings. Last, we run our suggest_players function from the copy_comps_algo.py file and retrive our tables of suggested players along with the names of players potentially related to the team's Four Factors weaknesses and the headers related to the facors designated as weaknesses. This is how we have all the info to create the tables of the NBA team pages.
+
+When all the pages for our teams are loaded along with our web-app's glossary, our project is finished. Hope this helps and feel free to use this project as inspiration and help towards any of your own future personal projects.
 
