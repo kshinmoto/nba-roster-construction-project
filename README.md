@@ -69,6 +69,7 @@ Screenshot of how to import csv file
 Screenshot of our database tables
 
 
+
 ### Frontend
 The frontend of our project is in charge of creating and running the visual pages of our web-app and making it accessible in a web browser. The web-page is made from Python and Flask, and uses html files for each of the pages on the web-app, as well as the SQL database we made through DB Browser to retrieve stat information. It is important that our frontend files for the project are located in the same repository as the backend files, mainly the copy_comps_also.py file as our main web-app file calls upon the function from that python file.
 
